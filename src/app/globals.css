@@ -1,0 +1,31 @@
+:root{
+    --bg: #100f2c;
+    --bgSoft: #343352;
+    --text:rgb(245, 239, 232);
+    --textSoft:rgb(243, 195, 137);
+    -btn: rgb(128, 32, 78);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--bg);
+    color:var(--text);
+}
+
+a{
+    text-decoration: none;
+}
+.container{
+    width: 100vw;
+    margin: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
