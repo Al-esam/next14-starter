@@ -1,36 +1,49 @@
 "use client";
+
+// import { useState } from "react";
 import styles from "./links.module.css";
-import NavLink from "./navLink/navLink"; 
+import NavLink from "./navLink/navLink";
+// import Image from "next/image";
+// import { handleLogout } from "@/lib/action";
 
 const Links = () => {
-    const links = [
+  const links = [
     {
-        title: "Homepage",
-        path: "/",
+      title: "Homepage",
+      path: "/",
     },
     {
-        title: "About",
-        path: "/about",
+      title: "About",
+      path: "/about",
     },
     {
-        title: "Contact",
-        path: "/contact",
+      title: "Contact",
+      path: "/contact",
     },
     {
-        title: "Blog",
-        path: "/blog",
+      title: "Blog",
+      path: "/blog",
     },
-    ];
+  ];
+  // TEMPORARY
+  const session = true;
+  const isAdmin = true;
 
-    return (
-        
-        <div className={styles.links}>
-            {links.map((link) => (
-            <NavLink item={link} key={link.title} />
-            ))}
+  return (
+    <div className={styles.links}>
+      {links.map((link) => (
+        <NavLink item={link} key={link.title} />
+      ))}
+      {session ? (
+        <>
+          {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
 
-        </div>
-    )
+          <button className={styles.logout}>Logout</button>
+        </>
+      ) : (
+        <NavLink item={{ title: "Login", path: "/login" }} />
+      )}
+    </div>
+  );
 };
-
 export default Links;
